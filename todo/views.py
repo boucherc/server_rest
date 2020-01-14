@@ -1,13 +1,12 @@
+import base64
+from django.http import Http404
 from django.shortcuts import render
+from rest_framework import status
+from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from todo.models import Todo, Picture
 from todo.serializers import TodoSerializer, PictureSerializer
-from django.http import Http404
-
-from rest_framework.views import APIView
-from rest_framework.response import Response
-from rest_framework import status
-
-import base64
 
 
 class TodoList(APIView):

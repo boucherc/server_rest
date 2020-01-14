@@ -1,8 +1,8 @@
 from django.test import TestCase
 
-# Create some instances
-
 from todo.models import Todo
+
+# Create some instances
 todo1 = Todo(description="faire les courses", priority="high")
 todo1.save()
 todo2 = Todo(description="aller à la plage")

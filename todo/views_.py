@@ -1,7 +1,9 @@
-from rest_framework.views import APIView
 from rest_framework.response import Response
+from rest_framework.views import APIView
+
 from todo.models import Todo
 from todo.serializers import TodoSerializer
+
 
 class TodoList(APIView):
 
