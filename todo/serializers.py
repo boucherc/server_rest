@@ -1,19 +1,14 @@
 from rest_framework import serializers
 
-from todo.models import Todo, Picture
+from todo.models import Todo
 
 
 class TodoSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = Todo
-        fields = ('id', 'description', 'deadline', 'done', 'priority', 'tags')
-
-class PictureSerializer(serializers.ModelSerializer):
-
-    class Meta:
-        model = Picture
         fields = ('name', 'img')
+
+
 
 # class TodoInputSerializer(serializers.Serializer):
 #     description = serializers.CharField()

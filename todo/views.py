@@ -5,8 +5,8 @@ from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
 
-from todo.models import Todo, Picture
-from todo.serializers import TodoSerializer, PictureSerializer
+from todo.models import Todo
+from todo.serializers import TodoSerializer
 
 
 class TodoList(APIView):
@@ -20,18 +20,9 @@ class TodoList(APIView):
 
 
     def post(self, request, format=None):
-        errors = {"error":"body must not be empty"}
-        if len(request.data) is not 0:
-            serializer = PictureSerializer(data=request.data)
-            if serializer.is_valid():
-                obj = serializer.save()
-                encoded = serializer.data.get('img')
-                result = open('new2.png', 'wb').write(base64.b64decode(encoded))
-                response = Response(serializer.data, status=status.HTTP_201_CREATED)
-                # response['Location'] = obj.get_absolute_url()
-                return response
-            errors = serializer.errors
-        return Response(errors, status=status.HTTP_400_BAD_REQUEST)
+        entry = Todo()
+        entry = request.FILES['img']
+        return Response(status=status.HTTP_400_BAD_REQUEST)
 
 
 class TodoDetail(APIView):
@@ -68,24 +59,4 @@ class TodoDetail(APIView):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
-class PictureView(APIView):
-
-    def get(self, request, format=None):
-        todos = Picture.objects.all()
-        serializer = PictureSerializer(todos, many=True)
-        return Response(serializer.data)
-
-    def post(self, request, format=None):
-        errors = {"error":"body must not be empty"}
-        if len(request.data) is not 0:
-            serializer = PictureSerializer(data=request.data)
-            if serializer.is_valid():
-                obj = serializer.save()
-                encoded = serializer.data.get('img')
-                result = open('new2.png', 'wb').write(base64.b64decode(encoded))
-                response = Response(status=status.HTTP_201_CREATED)
-                # response['Location'] = obj.get_absolute_url()
-                return response
-            errors = serializer.errors
-        return Response(errors, status=status.HTTP_400_BAD_REQUEST)
 
