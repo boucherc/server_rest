@@ -1,13 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+<<<<<<< HEAD
     <data-source source="LOCAL" name="Django default" uuid="04e1ea3d-e26f-42a9-bc02-4dc4896e1ce8">
+=======
+    <data-source source="LOCAL" name="Django default" uuid="b4a24b05-5235-46e9-9e80-37428969fa09">
+>>>>>>> 7d381248956e2f857050c16a06935ebb963c3bdf
       <driver-ref>sqlite.xerial</driver-ref>
       <synchronize>true</synchronize>
       <imported>true</imported>
       <remarks>$PROJECT_DIR$/todo_rest/settings.py</remarks>
       <jdbc-driver>org.sqlite.JDBC</jdbc-driver>
+<<<<<<< HEAD
       <jdbc-url>jdbc:sqlite:C:\Users\drsne\PycharmProjects\server_rest\db.sqlite3</jdbc-url>
+=======
+      <jdbc-url>jdbc:sqlite:C:\Users\Cyril\PycharmProjects\server_rest\db.sqlite3</jdbc-url>
+      <driver-properties>
+        <property name="enable_load_extension" value="true" />
+      </driver-properties>
+>>>>>>> 7d381248956e2f857050c16a06935ebb963c3bdf
     </data-source>
   </component>
 </project>
