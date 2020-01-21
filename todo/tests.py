@@ -1,26 +1,26 @@
 from django.test import TestCase
 
-from todo.models import Todo
+from todo.models import Picture
 
 # Create some instances
-todo1 = Todo(description="faire les courses", priority="high")
+todo1 = Picture(description="faire les courses", priority="high")
 todo1.save()
-todo2 = Todo(description="aller à la plage")
+todo2 = Picture(description="aller à la plage")
 todo2.save()
 
-todos = Todo.objects.all()
+todos = Picture.objects.all()
 for todo in todos:
     print("%d %s" % (todo.id, todo.description))
 
-todos = Todo.objects.filter(priority="low")
+todos = Picture.objects.filter(priority="low")
 
 todo1.delete()
 
 
 # serialization
 
-from todo.serializers import TodoSerializer
-serializer = TodoSerializer(todo2)
+from todo.serializers import PictureSerializer
+serializer = PictureSerializer(todo2)
 
 from rest_framework.renderers import JSONRenderer
 content = JSONRenderer().render(serializer.data)

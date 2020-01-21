@@ -1,6 +1,8 @@
 from django.db import models
 
 
-class Todo(models.Model):
-    name = models.TextField
-    img = models.ImageField(upload_to='images/')
+class Picture(models.Model):
+    img = models.ImageField(upload_to='images/', null=False)
+
+    def __str__(self):
+        return self.image.name

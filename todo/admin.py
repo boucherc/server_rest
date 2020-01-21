@@ -3,6 +3,6 @@ from django.contrib import admin
 # posts/admin.py
 from django.contrib import admin
 
-from .models import Todo
+from .models import Picture
 
-admin.site.register(Todo)
+admin.site.register(Picture)

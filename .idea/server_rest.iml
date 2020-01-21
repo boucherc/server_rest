@@ -13,24 +13,16 @@
     </facet>
   </component>
   <component name="NewModuleRootManager">
-<<<<<<< HEAD
     <content url="file://$MODULE_DIR$">
       <excludeFolder url="file://$MODULE_DIR$/venv" />
     </content>
     <orderEntry type="jdk" jdkName="Python 3.7 (server_rest)" jdkType="Python SDK" />
-=======
-    <content url="file://$MODULE_DIR$" />
-    <orderEntry type="jdk" jdkName="Python 3.7" jdkType="Python SDK" />
->>>>>>> 7d381248956e2f857050c16a06935ebb963c3bdf
     <orderEntry type="sourceFolder" forTests="false" />
   </component>
   <component name="TemplatesService">
     <option name="TEMPLATE_CONFIGURATION" value="Django" />
   </component>
-<<<<<<< HEAD
-=======
   <component name="TestRunnerService">
     <option name="PROJECT_TEST_RUNNER" value="Unittests" />
   </component>
->>>>>>> 7d381248956e2f857050c16a06935ebb963c3bdf
 </module>

@@ -10,11 +10,12 @@ from todo import views
 
 urlpatterns = [
     url(r'^$', serve, kwargs={'path': 'index.html'}),
-    url(r'^todos/$', views.TodoList.as_view()),
+
+    url(r'^lookforit/$', views.LookForIt.as_view()),
+    url(r'^lookforit/(?P<pk>[0-9]+)/$', views.LookForIt.as_view()),
+    url(r'^pictures/$', views.Pictures.as_view()),
+
     path('admin/', admin.site.urls),
 ]
-
-#    url(r'^$', serve, kwargs={'path': 'index.html', 'document_root': settings.STATIC_ROOT}),
-# + static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
 
 urlpatterns = format_suffix_patterns(urlpatterns)
