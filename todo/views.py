@@ -15,6 +15,7 @@ class LookForIt(APIView):
     """
 
     def get(self, request, format=None):
+        # TRAITEMENT D'IMAGES
         todos = Picture.objects.all()
         serializer = PictureSerializer(todos, many=True)
         return Response(serializer.data)
