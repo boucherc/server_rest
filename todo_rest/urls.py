@@ -14,7 +14,7 @@ urlpatterns = [
 
     url(r'^lookforit/$', views.LookForIt.as_view()),
     url(r'^lookforit/(?P<pk>[0-9]+)/$', views.LookForIt.as_view()),
-    url(r'^pictures/(?P<pk>[0-9]+)/$', views.Pictures.as_view()),
+    #  url(r'^pictures/(?P<pk>[0-9]+)/$', views.Pictures.as_view()),
 
     path('admin/', admin.site.urls),
 ] + static(settings.MEDIA_URL, document_root = settings.MEDIA_ROOT)
