@@ -1,6 +1,4 @@
-import base64
 from django.http import Http404
-from django.shortcuts import render
 from rest_framework import status
 from rest_framework.response import Response
 from rest_framework.views import APIView
@@ -22,20 +20,19 @@ class LookForIt(APIView):
     List all todos, or create a new todo.
     """
 
-    def get(self, request, pk, format=None):
+    def get(self, request, pk):
         obj = get_object(pk)
-        url = "./media/"+str(getattr(obj, 'img'))
+        url = "./media/" + str(getattr(obj, 'img'))
         print(url)
         res = query_online.getMatches(url)
         todos = Picture.objects.all()
         query = set()
-        for i in range(0,len(res)):
+        for i in range(0, len(res)):
             print(res[i][0], res[i][1])
             query.add(Result.objects.create(url=res[i][0], score=res[i][1]).pk)
-        list = Result.objects.filter(pk__in = query)
+        list = Result.objects.filter(pk__in=query)
         serializer = ResultSerializer(list, many=True)
         return Response(serializer.data)
-
 
     def post(self, request, format=None):
         serializer = PictureSerializer(data=request.data)
@@ -43,7 +40,6 @@ class LookForIt(APIView):
             serializer.save()
             return Response(serializer.data)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
-
 
 # class Pictures(APIView):
 #     """

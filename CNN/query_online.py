@@ -1,11 +1,9 @@
+import h5py
+import numpy as np
+
 from CNN.extract_cnn_vgg16_keras import VGGNet
 
-import numpy as np
-import h5py
-
 MAX_RES = 5
-import matplotlib.pyplot as plt
-import matplotlib.image as mpimg
 
 
 def getMatches(url):
@@ -36,9 +34,8 @@ def getMatches(url):
 
     # show top #maxres retrieved result one by one
     res = []
-    for i in range(0,MAX_RES):
+    for i in range(0, MAX_RES):
         resUrl = imgNames[rank_ID[i]].decode("utf-8")
         res.append([resUrl, rank_score[i]])
 
     return res
-

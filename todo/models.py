@@ -1,5 +1,4 @@
 from django.db import models
-import datetime
 
 
 class Picture(models.Model):
@@ -12,5 +11,3 @@ class Picture(models.Model):
 class Result(models.Model):
     url = models.CharField(max_length=1000)
     score = models.FloatField()
-
-

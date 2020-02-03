@@ -4,7 +4,6 @@ from django.db import migrations, models
 
 
 class Migration(migrations.Migration):
-
     initial = True
 
     dependencies = [
@@ -18,7 +17,9 @@ class Migration(migrations.Migration):
                 ('description', models.CharField(blank=True, default='', max_length=100)),
                 ('deadline', models.DateTimeField(auto_now_add=True)),
                 ('done', models.BooleanField(default=False)),
-                ('priority', models.CharField(choices=[('low', 'low'), ('normal', 'normal'), ('high', 'high')], default='normal', max_length=100)),
+                ('priority',
+                 models.CharField(choices=[('low', 'low'), ('normal', 'normal'), ('high', 'high')], default='normal',
+                                  max_length=100)),
                 ('tags', models.TextField(blank=True)),
             ],
             options={
