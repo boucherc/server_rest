@@ -1,5 +1,6 @@
 import h5py
 import numpy as np
+from keras import backend
 
 from CNN.extract_cnn_vgg16_keras import VGGNet
 
@@ -37,5 +38,5 @@ def getMatches(url):
     for i in range(0, MAX_RES):
         resUrl = imgNames[rank_ID[i]].decode("utf-8")
         res.append([resUrl, rank_score[i]])
-
+    backend.clear_session()
     return res

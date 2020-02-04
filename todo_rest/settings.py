@@ -119,8 +119,8 @@ USE_TZ = True
 
 STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 STATIC_URL = '/static/'
-STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'media')), '/CNN/dataset-retr/'
-ALLOWED_HOSTS = ['*']
+STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'), os.path.join(BASE_DIR, 'media'))
+ALLOWED_HOSTS = ['192.168.42.41', 'localhost', '127.0.0.1', '172.27.216.1', '192.168.43.10', '192.0.0.4']
 # STATICFILES_FINDERS = (
 #   'django.contrib.staticfiles.finders.FileSystemFinder',
 #   'django.contrib.staticfiles.finders.AppDirectoriesFinder',

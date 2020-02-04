@@ -4,6 +4,7 @@ from rest_framework.response import Response
 from rest_framework.views import APIView
 
 from CNN import query_online
+from todo import models
 from todo.models import Picture, Result
 from todo.serializers import PictureSerializer, ResultSerializer
 
@@ -20,6 +21,7 @@ class LookForIt(APIView):
     List all todos, or create a new todo.
     """
 
+
     def get(self, request, pk):
         obj = get_object(pk)
         url = "./media/" + str(getattr(obj, 'img'))
@@ -29,7 +31,7 @@ class LookForIt(APIView):
         query = set()
         for i in range(0, len(res)):
             print(res[i][0], res[i][1])
-            query.add(Result.objects.create(url=res[i][0], score=res[i][1]).pk)
+            query.add(Result.objects.create(url=res[i][0], score=res[i][1], marque=models.getMarque(res[i][0])).pk)
         list = Result.objects.filter(pk__in=query)
         serializer = ResultSerializer(list, many=True)
         return Response(serializer.data)
