@@ -2,6 +2,7 @@ import os
 
 import h5py
 import numpy as np
+from PIL import Image
 
 from CNN.extract_cnn_vgg16_keras import VGGNet
 
@@ -36,8 +37,37 @@ if __name__ == "__main__":
     names = []
 
     model = VGGNet()
-    for i, img_path in enumerate(img_list):
-        norm_feat = model.extract_feat(img_path)
+
+    file = open('list_bbox_inshop.txt', 'r')
+    tab = []
+    for ligne in file:
+        tab.append(ligne.rstrip('\r\n').split())
+
+    length = len(tab)
+
+    for i in range(2, 400):
+
+        img_path = tab[i][0]
+        # Download Image:
+        im = Image.open(img_path)
+
+        # Define box inside image
+
+        left = int(tab[i][3])
+        top = int(tab[i][4])
+        width = int(tab[i][5])-int(tab[i][3])
+        height = int(tab[i][6])-int(tab[i][4])
+
+        # Create Box
+
+        box = (left, top, left + width, top + height)
+
+        # Crop Image
+
+        area = im.crop(box)
+        area.save("tmp.png", "PNG")
+
+        norm_feat = model.extract_feat('tmp.png')
         img_name = os.path.split(img_path)[1]
         img_name = img_path[3::]
         feats.append(norm_feat)

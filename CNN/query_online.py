@@ -37,6 +37,6 @@ def getMatches(url):
     res = []
     for i in range(0, MAX_RES):
         resUrl = imgNames[rank_ID[i]].decode("utf-8")
-        res.append([resUrl, rank_score[i]])
+        res.append(['media/images'+resUrl, rank_score[i]])
     backend.clear_session()
     return res
