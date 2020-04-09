@@ -45,18 +45,25 @@ if __name__ == "__main__":
 
     length = len(tab)
 
-    for i in range(2, 400):
+    for i in range(2, length):
 
         img_path = tab[i][0]
         # Download Image:
-        im = Image.open(img_path)
-
+        url = 'media/images' + img_path[3:]
+        try:
+            im = Image.open(url)
+        except:
+            print('not found : ' + url)
+            continue
         # Define box inside image
-
-        left = int(tab[i][3])
-        top = int(tab[i][4])
-        width = int(tab[i][5])-int(tab[i][3])
-        height = int(tab[i][6])-int(tab[i][4])
+        try:
+            left = int(tab[i][3])
+            top = int(tab[i][4])
+            width = int(tab[i][5]) - int(tab[i][3])
+            height = int(tab[i][6]) - int(tab[i][4])
+        except:
+            print('error dimensions : ' + url)
+            continue
 
         # Create Box
 
@@ -72,7 +79,7 @@ if __name__ == "__main__":
         img_name = img_path[3::]
         feats.append(norm_feat)
         names.append(img_name)
-        print("extracting feature from image No. %d , %d images in total" % ((i + 1), len(img_list)))
+        print("extracting feature from image No. %d , %d images in total" % ((i + 1), length))
 
     feats = np.array(feats)
     output = 'featureCNN.h5'

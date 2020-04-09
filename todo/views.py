@@ -21,7 +21,6 @@ class LookForIt(APIView):
     List all todos, or create a new todo.
     """
 
-
     def get(self, request, pk):
         obj = get_object(pk)
         url = "./media/" + str(getattr(obj, 'img'))

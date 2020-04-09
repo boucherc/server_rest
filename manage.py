@@ -9,9 +9,6 @@ if __name__ == '__main__':
 
     with warnings.catch_warnings():
         warnings.filterwarnings("ignore", category=FutureWarning)
-        import tensorflow as tf
-        from tensorflow import keras
-        from tensorflow.keras.preprocessing.text import Tokenizer
     try:
         from django.core.management import execute_from_command_line
     except ImportError as exc:
